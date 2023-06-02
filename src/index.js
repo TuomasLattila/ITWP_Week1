@@ -22,7 +22,6 @@ function initializeCode() {
   /*buttons*/
   const printButton = document.getElementById("my-button");
   const addButton = document.getElementById("add-data");
-  const messageButton = document.getElementById("add-message");
   /*other elements*/
   const data = document.getElementById("data");
   const headerText = document.getElementById("headerText");
@@ -35,17 +34,16 @@ function initializeCode() {
 
   addButton.addEventListener("click", function () {
     let newText = document.createElement("li");
-    if (randomText.length > 0) {
-      newText.innerText = randomText.pop();
+
+    if (messageArea.value == "") {
+      if (randomText.length > 0) {
+        newText.innerText = randomText.pop();
+      } else {
+        newText.innerText = "No more random text left";
+      }
     } else {
-      newText.innerText = "No more random text left";
+      newText.innerText = messageArea.value;
     }
     data.appendChild(newText);
-  });
-
-  messageButton.addEventListener("click", function () {
-    let message = document.createElement("li");
-    message.innerText = messageArea.value;
-    data.appendChild(message);
   });
 }

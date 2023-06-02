@@ -134,7 +134,6 @@ function initializeCode() {
   /*buttons*/
   var printButton = document.getElementById("my-button");
   var addButton = document.getElementById("add-data");
-  var messageButton = document.getElementById("add-message");
   /*other elements*/
   var data = document.getElementById("data");
   var headerText = document.getElementById("headerText");
@@ -145,17 +144,16 @@ function initializeCode() {
   });
   addButton.addEventListener("click", function () {
     var newText = document.createElement("li");
-    if (randomText.length > 0) {
-      newText.innerText = randomText.pop();
+    if (messageArea.value == "") {
+      if (randomText.length > 0) {
+        newText.innerText = randomText.pop();
+      } else {
+        newText.innerText = "No more random text left";
+      }
     } else {
-      newText.innerText = "No more random text left";
+      newText.innerText = messageArea.value;
     }
     data.appendChild(newText);
-  });
-  messageButton.addEventListener("click", function () {
-    var message = document.createElement("li");
-    message.innerText = messageArea.value;
-    data.appendChild(message);
   });
 }
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
